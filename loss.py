@@ -34,7 +34,7 @@ class SSIM_Loss(nn.Module):
 			TV2=self.TV(IB,IF)
 		if self.use_ssim:
 
-			window=torch.ones((1,1,self.size,self.size))#/(self.size*self.size)
+			window=torch.ones((1,1,self.size,self.size))/(self.size*self.size)
 			window=window.cuda()
 
 			mean_IA=F.conv2d(IA,window,stride=self.stride)
